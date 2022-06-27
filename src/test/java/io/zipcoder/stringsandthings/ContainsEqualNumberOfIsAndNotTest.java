@@ -15,7 +15,9 @@ public class ContainsEqualNumberOfIsAndNotTest {
     @Before
     public void setup(){
         stringsAndThings = new StringsAndThings();
+
     }
+
 
     @Test
     public void equalIsNotTest1(){
@@ -34,4 +36,6 @@ public class ContainsEqualNumberOfIsAndNotTest {
         Boolean actual = stringsAndThings.containsEqualNumberOfIsAndNot("noisxxnotyynotxisi");
         Assert.assertTrue(actual);
     }
+
+
 }
