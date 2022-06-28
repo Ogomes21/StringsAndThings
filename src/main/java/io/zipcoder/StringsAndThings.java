@@ -90,33 +90,58 @@ public class StringsAndThings {
             return true;
         else {
         }
-            return false;
-        }
-
-        /**
-         * We'll say that a lowercase 'g' in a string is "happy" if there is another 'g' immediately to its left or right.
-         * Return true if all the g's in the given string are happy.
-         * example : gHappy("xxggxx") // Should return  true
-         * gHappy("xxgxx") // Should return  false
-         * gHappy("xxggyygxx") // Should return  false
-         */
-
-        //lowercase 'g' in a string is "happy" if there is another 'g' to its left or right
-        //return true (boolean) if all the g's in the string are happy.
-        //return false (boolean) if all the g's in teh string are not happy
-        public Boolean gIsHappy (String input){
-            return null;
-        }
-
-
-        /**
-         * We'll say that a "triple" in a string is a char appearing three times in a row.
-         * Return the number of triples in the given string. The triples may overlap.
-         * example :  countTriple("abcXXXabc") // Should return 1
-         * countTriple("xxxabyyyycd") // Should return 3
-         * countTriple("a") // Should return 0
-         */
-        public Integer countTriple (String input){
-            return null;
-        }
+        return false;
     }
+
+    /**
+     * We'll say that a lowercase 'g' in a string is "happy" if there is another 'g' immediately to its left or right.
+     * Return true if all the g's in the given string are happy.
+     * example : gHappy("xxggxx") // Should return  true
+     * gHappy("xxgxx") // Should return  false
+     * gHappy("xxggyygxx") // Should return  false
+     */
+
+    //lowercase 'g' in a string is "happy" if there is another 'g' to its left or right
+    //return true (boolean) if all the g's in the string are happy.
+    //return false (boolean) if all the g's in the string are not happy
+    public Boolean gIsHappy(String str) {
+        int length = str.length();
+        boolean happy = true;
+
+        for (int i = 0; i < length; i++) {
+            if (str.charAt(i) == 'g') {
+                if (i > 0 && str.charAt(i - 1) == 'g')
+                    happy = true;
+                else if (i < length - 1 && str.charAt(i + 1) == 'g')
+                    happy = true;
+                else
+                    happy = false;
+            }
+        }
+        return happy;
+    }
+
+
+    /**
+     * We'll say that a "triple" in a string is a char appearing three times in a row.
+     * Return the number of triples in the given string. The triples may overlap.
+     * example :  countTriple("abcXXXabc") // Should return 1
+     * countTriple("xxxabyyyycd") // Should return 3
+     * countTriple("a") // Should return 0
+     */
+
+    //triple --> char appearing 3 times in a row
+    //return # of triples in a string (may overlap)
+    //return an integer (int)
+
+    public Integer countTriple(String str) {
+        int count = 0;
+
+        for (int i = 0; i <= str.length() - 3; i++) {
+            if(str.charAt(i) == str.charAt(i + 1) &&
+                    str.charAt(i) == str.charAt(i + 2))
+                count++;
+        }
+        return count;
+    }
+}
